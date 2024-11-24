@@ -7,6 +7,12 @@ from wagtail.admin.panels import FieldPanel
 from wagtail.search import index
 
 # keep the definition of BlogIndexPage model, and add the BlogPage model:
+class BlogIndexPage(Page):
+    intro = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('intro')
+    ]
 
 class BlogPage(Page):
     date = models.DateField("Post date")
